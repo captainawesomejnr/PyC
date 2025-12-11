@@ -1,8 +1,4 @@
-def hang(errorCode):
-  appRunning = False
-  print(f"""ERROR!
-PyC ran into an issue that it couldn't recover from. Please check the documentation for more information.
-Error code: {errorCode}""")
+from imports import *
 version = "v0.0-b1"
 appRunning = True
 print(f"""PyC REPL (Read, Evaluate, Print, Loop)
@@ -14,5 +10,8 @@ while appRunning:
   if prompt == "quit":
     appRunning = False
     print("Goodbye")
-  elif prompt == "pyc hang":
-    hang(userInit)
+  elif prompt == "help":
+    exec(help.replCmd())
+  else:
+    exec(prompt)
+    
